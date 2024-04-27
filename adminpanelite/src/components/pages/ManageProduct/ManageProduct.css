@@ -1,17 +1,19 @@
 .ManageProduct{
+    font-size: 21px;
     background-color: rgb(255, 255, 255);
     height: auto;
     margin: 24px;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 2px 2px 10px 0 rgba(255, 255, 255, 0.581);
+    box-shadow: 2px 2px 10px 0 rgba(109, 109, 109, 0.256);
     
 }
 
 .ManageProductBtnCollection{
     display:flex;
     justify-content: space-evenly;
-    /* align-items: center; */
+    overflow-wrap: wrap;
+    align-items: center;
     
 }
 
@@ -28,4 +30,17 @@
     padding-bottom: 15px;
     border-color: white;
     box-shadow: 2px 2px 10px 0 rgba(33, 88, 255, 0.419);
+}
+
+
+@media screen and (max-width: 768px) {
+    .ManageProduct{
+        /* margin: 10px; */
+        padding: 30px;
+    }
+    .ManageProductBtnCollection{
+        flex-direction: column;
+    }
+  
+    
 }

@@ -1,5 +1,44 @@
-.Footer{
-    background-color: yellow;
+.Footer{ 
     height: 30px;
-    width: 100%;
+    display: flex;
+    flex:1;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 16px;
 }
+
+
+.FooterRight{  
+    flex:.3;
+      color: rgb(0, 0, 0);
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+      /* margin: 10px 0px 10px 0px; */
+  }
+  .FooterRight > a {
+     
+      margin-left: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      
+  }
+
+  .FooterLeft{
+    flex:.4;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  @media screen and (max-width: 768px) {
+    .Footer{
+      flex-direction: column;
+      align-items: space-between;
+      justify-content: space-between;
+    }
+    .FooterLeft{
+      margin-top: 10px;
+    }
+   
+  }
