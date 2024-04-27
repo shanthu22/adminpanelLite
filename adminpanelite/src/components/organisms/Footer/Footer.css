@@ -1,10 +1,11 @@
 .Footer{ 
-    height: 30px;
+    height: auto;
     display: flex;
     flex:1;
     justify-content: space-between;
     padding: 20px;
     font-size: 16px;
+    background-color: rgba(240,242,245,255);
 }
 
 
@@ -35,7 +36,9 @@
     .Footer{
       flex-direction: column;
       align-items: space-between;
-      justify-content: space-between;
+      justify-content: center;
+      padding-bottom: 20px;
+
     }
     .FooterLeft{
       margin-top: 10px;

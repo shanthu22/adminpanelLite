@@ -1,5 +1,36 @@
 .Nabvar{
     margin-top: 0px ;
-    background-color:  rgba(240,242,245,255);
+    padding: 10px;
+    background-color: rgba(240,242,245,255);
+    /* rgba(240,242,245,255); */
     height: 50px;
+    display:flex;
+    flex:1;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.NavbarLeft{
+    /* background-color: chartreuse; */
+    flex:.5;
+   display: flex;
+   align-items: center;
+}
+.NavbarLeftLogo{
+   
+   object-fit: contain;
+   height: 40px;
+   width: 40px;
+}
+
+.NavbarLeftLogo > img{
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+.NavbarRight{
+    /* background-color: blueviolet; */
+    flex:.5;
 }
