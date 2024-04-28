@@ -20,7 +20,8 @@
 .ManageProductBtn{
     color: white;
     font-size: 21px;
-    background-color: rgb(33, 89, 255);
+    background-color:rgb(33, 89, 255);;
+     /* rgb(33, 89, 255); */
     height: 100%;
     width: 100%;
     margin: 10px;
@@ -29,7 +30,8 @@
     padding-top: 15px;
     padding-bottom: 15px;
     border-color: white;
-    box-shadow: 2px 2px 10px 0 rgba(33, 88, 255, 0.419);
+    box-shadow: 2px 2px 10px 0  rgba(33, 88, 255, 0.419);
+    /* rgba(33, 88, 255, 0.419); */
 }
 
 

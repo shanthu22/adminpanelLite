@@ -17,13 +17,15 @@
    align-items: center;
 }
 .NavbarLeftLogo{
-   
+  
    object-fit: contain;
-   height: 40px;
-   width: 40px;
+   height: 50px;
+   width: 50px;
 }
 
 .NavbarLeftLogo > img{
+  
+    border-radius: 5px;
     object-fit: contain;
     height: 100%;
     width: 100%;

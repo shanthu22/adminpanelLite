@@ -1,4 +1,52 @@
+.ProductDisplay{
+  margin: 10px;
+}
+.ProductDisplayTableName{   
+  color:red;
+}
 .ProductDisplayTable {
     overflow-x: auto;
-  }
+ 
+}
+
+.ProductDisplayTable > table{
+  background-color: white;
+  color: black;   
+  width: 100%;
+ 
+}
   
+
+.ProductDisplayTableHead >  th {
+  background-color: rgb(173, 173, 255);
+  text-align: center; /* Center align text */
+  border: none; /* Example border style */
+    /* Show ellipsis if text overflows */
+}
+
+  .ProductDisplayTableBody >  td{
+    /* margin: 5px; */
+    /* background-color: rgb(63, 255, 29); */
+  
+     /* Adjust padding as needed */
+    text-align: left; /* Center align text */
+    border: 0px solid #000000; /* Example border style */
+    
+   
+    text-overflow: ellipsis; /* Show ellipsis if text overflows */
+  }
+
+  .ProductDisplayTableBody >  td > button {
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  background-color: #3060f0;
+  border: none;
+  padding: 5px;
+  margin: 0px;
+  cursor: pointer; 
+  }

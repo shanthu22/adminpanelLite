@@ -1,47 +1,6 @@
 import "./ProductDisplay.css";
 import Popup from "../../atoms/Popup/Popup";
-const ProductDisplay = () => {
-  const TableName = "Food Items";
-  const TableHeaders = [
-    "ID",
-    "Name",
-    "Description",
-    "Price",
-    "Quantity",
-    "Expirary Date",
-    "Image Path",
-    "Action",
-  ];
-  const TableData = [
-    {
-      id: 2,
-      name: "Apple",
-      description: "Ripe banana with potassium",
-      price: "0.49",
-      quantity: 150,
-      expDate: "2024-12-29T00:00:00.000Z",
-      imagePath: "apple.jpeg",
-    },
-    {
-      id: 3,
-      name: "Chicken Breast",
-      description: "Boneless skinless chicken breast",
-      price: "4.99",
-      quantity: 50,
-      expDate: "2024-12-31T00:00:00.000Z",
-      imagePath: "chicken.jpg",
-    },
-    {
-      id: 4,
-      name: "Baby Onesie",
-      description: "Soft cotton onesie for infants",
-      price: "12.99",
-      quantity: 50,
-      expDate: "2024-12-31T00:00:00.000Z",
-      imagePath: "onesie.jpg",
-    },
-  ];
-
+const ProductDisplay = ({ TableName, TableHeaders, TableData }) => {
   return (
     <>
       <Popup>
@@ -50,7 +9,7 @@ const ProductDisplay = () => {
           <div className="ProductDisplayTable">
             <table>
               <thead>
-                <tr>
+                <tr className="ProductDisplayTableHead">
                   {TableHeaders.map((header) => {
                     return <th>{header}</th>;
                   })}
@@ -59,7 +18,7 @@ const ProductDisplay = () => {
               <tbody>
                 {TableData.map((data) => {
                   return (
-                    <tr>
+                    <tr className="ProductDisplayTableBody">
                       <td>{data.id}</td>
                       <td>{data.name}</td>
                       <td>{data.description}</td>
@@ -67,6 +26,9 @@ const ProductDisplay = () => {
                       <td>{data.quantity}</td>
                       <td>{data.expDate}</td>
                       <td>{data.imagePath}</td>
+                      <td>
+                        <button>Select </button>
+                      </td>
                     </tr>
                   );
                 })}
@@ -79,3 +41,56 @@ const ProductDisplay = () => {
   );
 };
 export default ProductDisplay;
+
+//Default Props
+ProductDisplay.defaultProps = {
+  TableName: "Default Table Name",
+  TableHeaders: [
+    "ID",
+    "Name",
+    "Description",
+    "Price",
+    "Quantity",
+    "Expirary Date",
+    "Image Path",
+    "Action",
+  ],
+  TableData: [
+    {
+      id: 1,
+      name: "Default Name",
+      description: "Default Description",
+      price: "0.00",
+      quantity: 0,
+      expDate: "2024-12-31",
+      imagePath: "default.jpg",
+    },
+    {
+      id: 2,
+      name: "Apple",
+      description: "Ripe banana with potassium",
+      price: "0.49",
+      quantity: 150,
+      expDate: "2024-12-29",
+      imagePath: "apple.jpeg",
+    },
+    {
+      id: 3,
+      name: "Chicken Breast",
+      description: "Boneless skinless chicken breast",
+      price: "4.99",
+      quantity: 50,
+      expDate: "2024-12-31",
+      imagePath: "chicken.jpg",
+    },
+    {
+      id: 4,
+      name: "Baby Onesie",
+      description: "Soft cotton onesie for infants",
+      price: "12.99",
+      quantity: 50,
+      expDate: "2024-12-31",
+      imagePath: "onesie.jpg",
+    },
+  ],
+};
