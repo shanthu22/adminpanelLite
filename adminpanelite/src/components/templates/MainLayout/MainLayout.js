@@ -4,7 +4,7 @@ import Navbar from "../../organisms/Navbar/Navbar";
 import ManageProduct from "../../pages/ManageProduct/ManageProduct";
 import Footer from "../../organisms/Footer/Footer";
 import ProductDisplay from "../../molecules/ProductDisplay/ProductDisplay";
-import { apiFetch } from "../../../utils/api/Api";
+import { apiGet } from "../../../utils/api/Api";
 const MainLayout = () => {
   const TableName = "Default Table Name";
   const TableHeaders = [
@@ -20,7 +20,7 @@ const MainLayout = () => {
   const [TableData, setTableData] = useState();
 
   const FetchData = async (TableName) => {
-    const response = await apiFetch(TableName);
+    const response = await apiGet(TableName);
     console.log(response.data[0]);
     setTableData(response.data[0]);
   };

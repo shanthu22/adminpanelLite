@@ -3,18 +3,8 @@ import cors from "cors";
 
 // const axios = require("axios");
 //url, method, data
-export const apiFetch = async (tableName) => {
+export const apiGet = async (tableName) => {
   try {
-    let oldconfig = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: `http://localhost:3001/${tableName}/`,
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0MSIsImlhdCI6MTcxMzkxODI4OH0.cYuZxd4uKcTUmH4CZZvln0ww9efmoO8F1FOGQi9nej0",
-      },
-      // data: data,
-    };
     const token =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0MSIsImlhdCI6MTcxMzkxODI4OH0.cYuZxd4uKcTUmH4CZZvln0ww9efmoO8F1FOGQi9nej0";
     const config = {
@@ -43,4 +33,66 @@ export const apiFetch = async (tableName) => {
   }
 };
 
-apiFetch();
+//apiPost();
+export const apiPost = async (tableName, data) => {
+  try {
+    console.log("POST Api is called ");
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0MSIsImlhdCI6MTcxMzkxODI4OH0.cYuZxd4uKcTUmH4CZZvln0ww9efmoO8F1FOGQi9nej0";
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const response = await axios.post(
+      `http://localhost:3001/${tableName}/`,
+      data,
+      config
+    );
+    console.log(response);
+  } catch (error) {
+    return ["error", "connection error"];
+  }
+};
+
+export const apiPut = async (tableName, data) => {
+  try {
+    console.log("PUT Api is called ");
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0MSIsImlhdCI6MTcxMzkxODI4OH0.cYuZxd4uKcTUmH4CZZvln0ww9efmoO8F1FOGQi9nej0";
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.put(
+      `http://localhost:3001/${tableName}/${data.id}`,
+      data,
+      config
+    );
+    console.log(response);
+  } catch (error) {
+    return ["error", "connection error"];
+  }
+};
+
+export const apiDelete = async (tableName, data) => {
+  try {
+    console.log("DELETE Api is called");
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0MSIsImlhdCI6MTcxMzkxODI4OH0.cYuZxd4uKcTUmH4CZZvln0ww9efmoO8F1FOGQi9nej0";
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.delete(
+      `http://localhost:3001/${tableName}/${data.id}`,
+      config
+    );
+    console.log(response);
+  } catch (error) {
+    return ["error", "connection error"];
+  }
+};
