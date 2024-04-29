@@ -26,7 +26,7 @@ const MainLayout = () => {
   };
   useEffect(() => {
     FetchData("food");
-  }, []);
+  }, [TableData]);
   return (
     <div className="MainLayout">
       <Navbar />

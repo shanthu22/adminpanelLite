@@ -34,7 +34,7 @@ const ManageProduct = () => {
     e.preventDefault();
     console.log("Delete Button Clicked");
     const data = {
-      id: 11,
+      id: 7,
     };
     apiDelete("food", data);
   };
