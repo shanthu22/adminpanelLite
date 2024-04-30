@@ -57,7 +57,7 @@ export const S3ObjectsGet = async (ObjectName) => {
   const awsConnectionObj = new awsConnection();
   try {
     const data = await awsConnectionObj.getObject(params);
-    console.log(data);
+    //console.log(data);
     return data;
   } catch (error) {
     console.log(error);

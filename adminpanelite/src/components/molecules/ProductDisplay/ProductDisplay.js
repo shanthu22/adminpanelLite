@@ -6,14 +6,16 @@ import { useEffect, useState } from "react";
 
 const ProductDisplay = ({ TableName, TableHeaders, TableData }) => {
   const [imageURLs, setImageURLs] = useState([]);
-
+  const HandleClick = (prd) => {
+    console.log(prd);
+  };
   useEffect(() => {
     const fetchImages = async () => {
       const urls = await Promise.all(
         TableData.map(async (data) => {
           try {
             const imageData = await S3ObjectsGet(data.imagePath);
-            console.log(data.imageData);
+            // console.log(data.imageData);
             if (imageData) {
               const blob = await new Blob([imageData.Body], {
                 type: "image/jpeg",
@@ -62,7 +64,7 @@ const ProductDisplay = ({ TableName, TableHeaders, TableData }) => {
                     )}
                   </td>
                   <td>
-                    <button>Select </button>
+                    <button onClick={() => HandleClick(data)}>Select </button>
                   </td>
                 </tr>
               ))}
@@ -92,40 +94,13 @@ ProductDisplay.defaultProps = {
   ],
   TableData: [
     {
-      id: 1,
+      id: 0,
       name: "Default Name",
       description: "Default Description",
       price: "0.00",
       quantity: 0,
       expDate: "2024-12-31",
       imagePath: "default.jpg",
-    },
-    {
-      id: 2,
-      name: "Apple",
-      description: "Ripe banana with potassium",
-      price: "0.49",
-      quantity: 150,
-      expDate: "2024-12-29",
-      imagePath: "apple.jpeg",
-    },
-    {
-      id: 3,
-      name: "Chicken Breast",
-      description: "Boneless skinless chicken breast",
-      price: "4.99",
-      quantity: 50,
-      expDate: "2024-12-31",
-      imagePath: "chicken.jpg",
-    },
-    {
-      id: 4,
-      name: "Baby Onesie",
-      description: "Soft cotton onesie for infants",
-      price: "12.99",
-      quantity: 50,
-      expDate: "2024-12-31",
-      imagePath: "onesie.jpg",
     },
   ],
 };

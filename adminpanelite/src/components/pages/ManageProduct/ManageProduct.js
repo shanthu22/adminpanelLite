@@ -2,10 +2,11 @@ import "./ManageProduct.css";
 import Popup from "../../atoms/Popup/Popup";
 import { apiPost, apiPut, apiDelete } from "../../../utils/api/Api";
 
-const ManageProduct = () => {
+const ManageProduct = ({ SelectedPrd, HandleInputForm }) => {
   const HandleAddBtn = (e) => {
     e.preventDefault();
     console.log("Add Button Clicked");
+    HandleInputForm("AddInputForm");
     const data = {
       name: "CheckImg",
       description: "Ripe banana with potassium",
@@ -14,9 +15,10 @@ const ManageProduct = () => {
       expDate: "2024-12-30",
       imagePath: "new.jpg",
     };
-    apiPost("food", data);
+    // apiPost("food", data);
   };
   const HandleEditBtn = (e) => {
+    HandleInputForm("EditInputForm");
     e.preventDefault();
     console.log("Edit Button Clicked");
     const data = {
@@ -26,16 +28,16 @@ const ManageProduct = () => {
       price: "0.49",
       quantity: 150,
       expDate: "2024-12-30",
-      imagePath: "new.jpg",
+      imagePath: "salad.jpg",
     };
-    apiPut("food", data);
+    // apiPut("food", data);
   };
 
   const HandleDeleteBtn = (e) => {
     e.preventDefault();
     console.log("Delete Button Clicked");
     const data = {
-      id: 24,
+      id: 26,
     };
     apiDelete("food", data);
   };
