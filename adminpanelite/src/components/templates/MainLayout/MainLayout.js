@@ -5,6 +5,7 @@ import ManageProduct from "../../pages/ManageProduct/ManageProduct";
 import Footer from "../../organisms/Footer/Footer";
 import ProductDisplay from "../../molecules/ProductDisplay/ProductDisplay";
 import { apiGet } from "../../../utils/api/Api";
+// import { S3ObjectsGet } from "../../../utils/aws/Aws";
 const MainLayout = () => {
   const TableName = "Default Table Name";
   const TableHeaders = [
@@ -15,15 +16,17 @@ const MainLayout = () => {
     "Quantity",
     "Expirary Date",
     "Image Path",
+    "Image",
     "Action",
   ];
   const [TableData, setTableData] = useState();
 
   const FetchData = async (TableName) => {
     const response = await apiGet(TableName);
-    console.log(response.data[0]);
+    //console.log(response.data[0]);
     setTableData(response.data[0]);
   };
+
   useEffect(() => {
     FetchData("food");
   }, [TableData]);

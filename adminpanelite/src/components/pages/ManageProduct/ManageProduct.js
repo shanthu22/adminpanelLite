@@ -1,17 +1,18 @@
 import "./ManageProduct.css";
 import Popup from "../../atoms/Popup/Popup";
 import { apiPost, apiPut, apiDelete } from "../../../utils/api/Api";
+
 const ManageProduct = () => {
   const HandleAddBtn = (e) => {
     e.preventDefault();
     console.log("Add Button Clicked");
     const data = {
-      name: "NewData",
+      name: "CheckImg",
       description: "Ripe banana with potassium",
       price: "0.49",
       quantity: 150,
       expDate: "2024-12-30",
-      photoUrl: "new.jpg",
+      imagePath: "new.jpg",
     };
     apiPost("food", data);
   };
@@ -25,7 +26,7 @@ const ManageProduct = () => {
       price: "0.49",
       quantity: 150,
       expDate: "2024-12-30",
-      photoUrl: "new.jpg",
+      imagePath: "new.jpg",
     };
     apiPut("food", data);
   };
@@ -34,7 +35,7 @@ const ManageProduct = () => {
     e.preventDefault();
     console.log("Delete Button Clicked");
     const data = {
-      id: 7,
+      id: 24,
     };
     apiDelete("food", data);
   };
@@ -42,19 +43,22 @@ const ManageProduct = () => {
     <>
       <Popup>
         {/* <div className="ManageProduct"> */}
+
         <div>Manage Products</div>
         <div className="ManageProductBtnCollection">
-          <button className="ManageProductBtn">Reload</button>
-          <button className="ManageProductBtn" onClick={(e) => HandleAddBtn(e)}>
+          <button className="ManageProductReloadBtn">Reload</button>
+          <button
+            className="ManageProductAddBtn"
+            onClick={(e) => HandleAddBtn(e)}>
             Add
           </button>
           <button
-            className="ManageProductBtn"
+            className="ManageProductEditBtn"
             onClick={(e) => HandleEditBtn(e)}>
             Edit
           </button>
           <button
-            className="ManageProductBtn"
+            className="ManageProductDeleteBtn"
             onClick={(e) => HandleDeleteBtn(e)}>
             Delete
           </button>

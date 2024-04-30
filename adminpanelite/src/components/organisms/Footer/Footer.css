@@ -1,12 +1,14 @@
 .Footer{ 
     height: auto;
+    
     display: flex;
     flex:1;
     justify-content: space-between;
  
     padding: 20px 30px 20px 30px;
     font-size: 16px;
-    background-color: rgba(240,242,245,255);
+     background-color: rgba(240,242,245,255); 
+   
 }
 
 
@@ -15,15 +17,10 @@
       color: rgb(0, 0, 0);
       display: flex;
       justify-content: start ;
-      
-      /* display: flex;
-      justify-content: center;
-      align-items: center; */
-      /* margin: 10px 0px 10px 0px; */
   }
   .FooterLeft > a {
      
-      /* margin-left: 6px; */
+    
       font-size: 16px;
       font-weight: bold;
       text-decoration: none;
