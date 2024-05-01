@@ -58,7 +58,7 @@ const MainLayout = () => {
         HandleInputForm={HandleInputForm}
       />
       {ShowAddInputForm && <AddInputForm />}
-      {ShowEditInputForm && <EditInputForm />}
+      {ShowEditInputForm && <EditInputForm SelectedPrd={SelectedPrd} />}
       <ProductDisplay
         TableName={"Food Items"}
         TableHeaders={TableHeaders}

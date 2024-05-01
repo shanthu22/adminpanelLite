@@ -1,4 +1,5 @@
 .Popup{
+    object-fit: contain;
     font-size: 21px;
     background-color: rgb(255, 255, 255);
     height: auto;

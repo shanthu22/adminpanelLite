@@ -1,0 +1,76 @@
+.EditInputForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    padding: 30px 0px 30px 0px;
+    
+    
+}
+
+.form {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+}
+.form> label{
+   /* background-color: aquamarine; */
+    width:80%;
+    display: flex;
+    align-items: center;
+}
+
+.input
+{
+    width: 100%; 
+    max-width: 100%; 
+    padding:10px;
+    margin:0px;
+    margin-top: 10px;
+    border-radius: 10px;
+    
+    border: 2px solid #797979;
+    font-size: 20px;
+}
+
+.submitBtn {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100%; 
+    margin:10px 0px 0px 0px;
+    font-size: 20px;
+
+    padding:10px;
+    border: none;
+    background-color: rgb(50,139,235);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .input {
+        padding: 5px;
+        width: 100%; /* Adjusting width for smaller screens */
+        height:auto;
+        font-size: 15px;
+    }
+
+    .submitBtn {
+        padding: 5px;
+        width: 100%; 
+        margin-top: 10px;
+        font-size: 15px;
+    }
+    .form> label{
+        
+         width: 100%;
+         display: flex;
+         align-items: center;
+     }
+     
+}

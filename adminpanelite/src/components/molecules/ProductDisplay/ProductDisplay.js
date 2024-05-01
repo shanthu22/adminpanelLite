@@ -4,10 +4,16 @@ import SampleImg from "../../../assets/example1.jpg";
 import { S3ObjectsGet } from "../../../utils/aws/Aws";
 import { useEffect, useState } from "react";
 
-const ProductDisplay = ({ TableName, TableHeaders, TableData }) => {
+const ProductDisplay = ({
+  TableName,
+  TableHeaders,
+  TableData,
+  FetchSelectedPrd,
+}) => {
   const [imageURLs, setImageURLs] = useState([]);
   const HandleClick = (prd) => {
-    console.log(prd);
+    // console.log(prd);
+    FetchSelectedPrd(prd);
   };
   useEffect(() => {
     const fetchImages = async () => {
@@ -33,7 +39,7 @@ const ProductDisplay = ({ TableName, TableHeaders, TableData }) => {
     };
 
     fetchImages();
-  }, [TableData]);
+  }, []); //TableData
 
   return (
     <Popup>
