@@ -4,9 +4,10 @@ import Navbar from "../../organisms/Navbar/Navbar";
 import ManageProduct from "../../pages/ManageProduct/ManageProduct";
 import Footer from "../../organisms/Footer/Footer";
 import ProductDisplay from "../../molecules/ProductDisplay/ProductDisplay";
-import { apiGet } from "../../../utils/api/Api";
+import { apiGet, apiPost, apiPut, apiDelete } from "../../../utils/api/Api";
 import AddInputForm from "../../molecules/AddInputForm/AddInputForm";
 import EditInputForm from "../../molecules/EditInputForm/EditInputForm";
+
 // import { S3ObjectsGet } from "../../../utils/aws/Aws";
 const MainLayout = () => {
   const TableName = "Default Table Name";
@@ -25,16 +26,29 @@ const MainLayout = () => {
   const [SelectedPrd, setSelectedPrd] = useState();
   const [ShowAddInputForm, setShowAddInputForm] = useState(false);
   const [ShowEditInputForm, setShowEditInputForm] = useState(false);
-
+  const HandleCRUD = (action, data) => {
+    //e.preventDefault();
+    console.log(action);
+    console.log(data);
+    if (action == "Add") {
+      console.log("ADDDD IS CALLED");
+      apiPost("food", data);
+    } else if (action == "Edit") {
+      console.log("EDIT IS CALLED");
+      apiPut("food", data);
+    } else if (action == "Delete") {
+      apiDelete("food", data);
+    } else {
+      alert("select proper option");
+    }
+  };
   const HandleInputForm = (name) => {
     if (name == "AddInputForm") {
       setShowAddInputForm((ShowAddInputForm) => !ShowAddInputForm);
       setShowEditInputForm(false);
-      //alert(ShowAddInputForm);
     } else if (name == "EditInputForm") {
       setShowEditInputForm((ShowEditInputForm) => !ShowEditInputForm);
       setShowAddInputForm(false);
-      //alert(ShowEditInputForm);
     }
   };
 
@@ -57,8 +71,10 @@ const MainLayout = () => {
         SelectedPrd={SelectedPrd}
         HandleInputForm={HandleInputForm}
       />
-      {ShowAddInputForm && <AddInputForm />}
-      {ShowEditInputForm && <EditInputForm SelectedPrd={SelectedPrd} />}
+      {ShowAddInputForm && <AddInputForm HandleCRUD={HandleCRUD} />}
+      {ShowEditInputForm && (
+        <EditInputForm SelectedPrd={SelectedPrd} HandleCRUD={HandleCRUD} />
+      )}
       <ProductDisplay
         TableName={"Food Items"}
         TableHeaders={TableHeaders}

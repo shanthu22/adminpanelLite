@@ -1,24 +1,28 @@
 import Popup from "../../atoms/Popup/Popup";
-
-const AddInputForm = () => {
+import { useState } from "react";
+const AddInputForm = ({ HandleCRUD }) => {
+  const [Formdata, setFormdata] = useState([]);
+  const HandleOnchange = (e) => {
+    e.preventDefault();
+    setFormdata({ ...Formdata, [e.target.name]: e.target.value });
+  };
+  const HandleSubmit = (e) => {
+    e.preventDefault();
+    console.log(Formdata);
+    HandleCRUD("Add", Formdata);
+  };
   return (
     <Popup>
-      <div className="EditInputForm">
-        <div>Add Product </div>
-        <form className="form">
-          <label>
-            <input
-              readOnly
-              placeholder="ID"
-              value={"id"}
-              // type="text"
-              className="input"
-            />
-          </label>
+      <div className="AddnputForm">
+        <div>Edit Product </div>
+        <div className="Image"></div>
+        <div className="form">
           <label>
             <input
               placeholder="Name"
-              value={"name"}
+              name="name"
+              onChange={(e) => HandleOnchange(e)}
+              value={Formdata.name}
               type="text"
               className="input"
             />
@@ -26,8 +30,10 @@ const AddInputForm = () => {
           <label>
             <input
               required=""
-              placeholder="description"
-              value={"description"}
+              placeholder="Description"
+              name="description"
+              onChange={(e) => HandleOnchange(e)}
+              value={Formdata.description}
               type="text"
               className="input"
             />
@@ -35,8 +41,10 @@ const AddInputForm = () => {
           <label>
             <input
               required=""
-              placeholder="price"
-              value={"price"}
+              placeholder="Price"
+              name="price"
+              onChange={(e) => HandleOnchange(e)}
+              value={Formdata.price}
               type="text"
               className="input"
             />
@@ -44,8 +52,10 @@ const AddInputForm = () => {
           <label>
             <input
               required=""
-              placeholder="quantity"
-              value={"quantity"}
+              placeholder="Quantity"
+              name="quantity"
+              onChange={(e) => HandleOnchange(e)}
+              value={Formdata.quantity}
               type="text"
               className="input"
             />
@@ -53,8 +63,10 @@ const AddInputForm = () => {
           <label>
             <input
               required=""
-              placeholder="expDate"
-              value={"expDate"}
+              placeholder="Expiray Date"
+              name="expDate"
+              onChange={(e) => HandleOnchange(e)}
+              value={Formdata.expDate}
               type="text"
               className="input"
             />
@@ -62,13 +74,20 @@ const AddInputForm = () => {
           <label>
             <input
               required=""
-              placeholder="imagePath"
-              value={"imagePath"}
+              placeholder="Image Path"
+              name="imagePath"
+              onChange={(e) => HandleOnchange(e)}
+              value={Formdata.imagePath}
               type="text"
               className="input"
             />
           </label>
-        </form>
+          <label>
+            <button className="submitBtn" onClick={(e) => HandleSubmit(e)}>
+              Submit
+            </button>
+          </label>
+        </div>
       </div>
     </Popup>
   );
