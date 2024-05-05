@@ -5,6 +5,7 @@ import cors from "cors";
 //url, method, data
 export const apiGet = async (tableName) => {
   try {
+    console.log("GET Api is called");
     const token =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0MSIsImlhdCI6MTcxMzkxODI4OH0.cYuZxd4uKcTUmH4CZZvln0ww9efmoO8F1FOGQi9nej0";
     const config = {

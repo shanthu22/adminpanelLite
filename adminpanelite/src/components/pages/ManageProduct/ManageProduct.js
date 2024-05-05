@@ -2,7 +2,13 @@ import "./ManageProduct.css";
 import Popup from "../../atoms/Popup/Popup";
 import { apiPost, apiPut, apiDelete } from "../../../utils/api/Api";
 
-const ManageProduct = ({ SelectedPrd, HandleInputForm }) => {
+const ManageProduct = ({ SelectedPrd, HandleInputForm, HandleDataReload }) => {
+  const HandlereloadBtn = (e) => {
+    e.preventDefault();
+    // HandleInputForm("reload");
+    HandleDataReload();
+  };
+
   const HandleAddBtn = (e) => {
     e.preventDefault();
     console.log("Add Button Clicked");
@@ -48,7 +54,11 @@ const ManageProduct = ({ SelectedPrd, HandleInputForm }) => {
 
         <div>Manage Products</div>
         <div className="ManageProductBtnCollection">
-          <button className="ManageProductReloadBtn">Reload</button>
+          <button
+            className="ManageProductReloadBtn"
+            onClick={(e) => HandlereloadBtn(e)}>
+            Reload
+          </button>
           <button
             className="ManageProductAddBtn"
             onClick={(e) => HandleAddBtn(e)}>
