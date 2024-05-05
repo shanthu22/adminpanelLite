@@ -26,29 +26,46 @@ const MainLayout = () => {
   const [SelectedPrd, setSelectedPrd] = useState();
   const [ShowAddInputForm, setShowAddInputForm] = useState(false);
   const [ShowEditInputForm, setShowEditInputForm] = useState(false);
+  const [ShowDeleteInputForm, setShowDeleteInputForm] = useState(false);
+  const [Reload, setReload] = useState(false);
   const HandleCRUD = (action, data) => {
     //e.preventDefault();
     console.log(action);
     console.log(data);
     if (action == "Add") {
-      console.log("ADDDD IS CALLED");
+      //console.log("ADDDD IS CALLED");
       apiPost("food", data);
+      HandleDataReload("AddInputForm");
     } else if (action == "Edit") {
       console.log("EDIT IS CALLED");
       apiPut("food", data);
+      HandleInputForm();
     } else if (action == "Delete") {
       apiDelete("food", data);
+      HandleInputForm();
     } else {
       alert("select proper option");
     }
+  };
+
+  const HandleDataReload = () => {
+    setReload((Reload) => !Reload);
   };
   const HandleInputForm = (name) => {
     if (name == "AddInputForm") {
       setShowAddInputForm((ShowAddInputForm) => !ShowAddInputForm);
       setShowEditInputForm(false);
+      setShowDeleteInputForm(false);
     } else if (name == "EditInputForm") {
       setShowEditInputForm((ShowEditInputForm) => !ShowEditInputForm);
       setShowAddInputForm(false);
+      setShowDeleteInputForm(false);
+    } else if (name == "DeleteInputForm") {
+      setShowDeleteInputForm(
+        (setShowDeleteInputForm) => !setShowDeleteInputForm
+      );
+      setShowAddInputForm(false);
+      setShowEditInputForm(false);
     }
   };
 
@@ -63,13 +80,15 @@ const MainLayout = () => {
   };
   useEffect(() => {
     FetchData("food");
-  }, [TableData]);
+    // console.log("reload is called ");
+  }, [Reload]); //TableData    Reload
   return (
     <div className="MainLayout">
       <Navbar />
       <ManageProduct
         SelectedPrd={SelectedPrd}
         HandleInputForm={HandleInputForm}
+        HandleDataReload={HandleDataReload}
       />
       {ShowAddInputForm && <AddInputForm HandleCRUD={HandleCRUD} />}
       {ShowEditInputForm && (
