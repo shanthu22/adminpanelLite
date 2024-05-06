@@ -80,6 +80,7 @@ const MainLayout = () => {
     console.log(prd);
     setSelectedPrd(prd);
   };
+
   useEffect(() => {
     FetchData("food");
   }, [Reload]); //TableData    Reload
@@ -92,10 +93,10 @@ const MainLayout = () => {
         HandleDataReload={HandleDataReload}
       />
       {ShowAddInputForm && <AddInputForm HandleCRUD={HandleCRUD} />}
-      {ShowEditInputForm && (
+      {ShowEditInputForm && SelectedPrd && (
         <EditInputForm SelectedPrd={SelectedPrd} HandleCRUD={HandleCRUD} />
       )}
-      {ShowDeleteInputForm && (
+      {ShowDeleteInputForm && SelectedPrd && (
         <DeleteInputForm SelectedPrd={SelectedPrd} HandleCRUD={HandleCRUD} />
       )}
       <ProductDisplay
