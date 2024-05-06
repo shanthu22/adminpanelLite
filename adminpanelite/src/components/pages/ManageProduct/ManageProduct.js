@@ -2,7 +2,7 @@ import "./ManageProduct.css";
 import Popup from "../../atoms/Popup/Popup";
 import { apiPost, apiPut, apiDelete } from "../../../utils/api/Api";
 
-const ManageProduct = ({ SelectedPrd, HandleInputForm, HandleDataReload }) => {
+const ManageProduct = ({ HandleInputForm, HandleDataReload }) => {
   const HandlereloadBtn = (e) => {
     e.preventDefault();
     // HandleInputForm("reload");
@@ -42,41 +42,41 @@ const ManageProduct = ({ SelectedPrd, HandleInputForm, HandleDataReload }) => {
   const HandleDeleteBtn = (e) => {
     e.preventDefault();
     console.log("Delete Button Clicked");
-    const data = {
-      id: 26,
-    };
-    apiDelete("food", data);
+    HandleInputForm("DeleteInputForm");
+    // const data = {
+    //   id: 26,
+    // };
+    // apiDelete("food", data);
   };
   return (
     <>
       <Popup>
-        {/* <div className="ManageProduct"> */}
-
-        <div>Manage Products</div>
-        <div className="ManageProductBtnCollection">
-          <button
-            className="ManageProductReloadBtn"
-            onClick={(e) => HandlereloadBtn(e)}>
-            Reload
-          </button>
-          <button
-            className="ManageProductAddBtn"
-            onClick={(e) => HandleAddBtn(e)}>
-            Add
-          </button>
-          <button
-            className="ManageProductEditBtn"
-            onClick={(e) => HandleEditBtn(e)}>
-            Edit
-          </button>
-          <button
-            className="ManageProductDeleteBtn"
-            onClick={(e) => HandleDeleteBtn(e)}>
-            Delete
-          </button>
+        <div className="ManageProduct">
+          <div className="ManageProductHeading">Manage Products</div>
+          <div className="ManageProductBtnCollection">
+            <button
+              className="ManageProductReloadBtn"
+              onClick={(e) => HandlereloadBtn(e)}>
+              Reload
+            </button>
+            <button
+              className="ManageProductAddBtn"
+              onClick={(e) => HandleAddBtn(e)}>
+              Add
+            </button>
+            <button
+              className="ManageProductEditBtn"
+              onClick={(e) => HandleEditBtn(e)}>
+              Edit
+            </button>
+            <button
+              className="ManageProductDeleteBtn"
+              onClick={(e) => HandleDeleteBtn(e)}>
+              Delete
+            </button>
+          </div>
         </div>
       </Popup>
-      {/* </div> */}
     </>
   );
 };

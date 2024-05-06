@@ -7,6 +7,7 @@ import ProductDisplay from "../../molecules/ProductDisplay/ProductDisplay";
 import { apiGet, apiPost, apiPut, apiDelete } from "../../../utils/api/Api";
 import AddInputForm from "../../molecules/AddInputForm/AddInputForm";
 import EditInputForm from "../../molecules/EditInputForm/EditInputForm";
+import DeleteInputForm from "../../molecules/DeleteInputForm/DeleteInputForm";
 
 // import { S3ObjectsGet } from "../../../utils/aws/Aws";
 const MainLayout = () => {
@@ -28,16 +29,12 @@ const MainLayout = () => {
   const [ShowEditInputForm, setShowEditInputForm] = useState(false);
   const [ShowDeleteInputForm, setShowDeleteInputForm] = useState(false);
   const [Reload, setReload] = useState(false);
+
   const HandleCRUD = (action, data) => {
-    //e.preventDefault();
-    console.log(action);
-    console.log(data);
     if (action == "Add") {
-      //console.log("ADDDD IS CALLED");
       apiPost("food", data);
       HandleDataReload("AddInputForm");
     } else if (action == "Edit") {
-      console.log("EDIT IS CALLED");
       apiPut("food", data);
       HandleInputForm();
     } else if (action == "Delete") {
@@ -51,6 +48,7 @@ const MainLayout = () => {
   const HandleDataReload = () => {
     setReload((Reload) => !Reload);
   };
+
   const HandleInputForm = (name) => {
     if (name == "AddInputForm") {
       setShowAddInputForm((ShowAddInputForm) => !ShowAddInputForm);
@@ -74,13 +72,13 @@ const MainLayout = () => {
     //console.log(response.data[0]);
     setTableData(response.data[0]);
   };
+
   const FetchSelectedPrd = (prd) => {
     console.log(prd);
     setSelectedPrd(prd);
   };
   useEffect(() => {
     FetchData("food");
-    // console.log("reload is called ");
   }, [Reload]); //TableData    Reload
   return (
     <div className="MainLayout">
@@ -93,6 +91,9 @@ const MainLayout = () => {
       {ShowAddInputForm && <AddInputForm HandleCRUD={HandleCRUD} />}
       {ShowEditInputForm && (
         <EditInputForm SelectedPrd={SelectedPrd} HandleCRUD={HandleCRUD} />
+      )}
+      {ShowDeleteInputForm && (
+        <DeleteInputForm SelectedPrd={SelectedPrd} HandleCRUD={HandleCRUD} />
       )}
       <ProductDisplay
         TableName={"Food Items"}
