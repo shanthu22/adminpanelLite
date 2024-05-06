@@ -29,26 +29,9 @@ const MainLayout = () => {
   const [ShowEditInputForm, setShowEditInputForm] = useState(false);
   const [ShowDeleteInputForm, setShowDeleteInputForm] = useState(false);
   const [Reload, setReload] = useState(false);
-
-  const HandleCRUD = (action, data) => {
-    if (action == "Add") {
-      apiPost("food", data);
-      HandleDataReload("AddInputForm");
-    } else if (action == "Edit") {
-      apiPut("food", data);
-      HandleInputForm();
-    } else if (action == "Delete") {
-      apiDelete("food", data);
-      HandleInputForm();
-    } else {
-      alert("select proper option");
-    }
-  };
-
   const HandleDataReload = () => {
     setReload((Reload) => !Reload);
   };
-
   const HandleInputForm = (name) => {
     if (name == "AddInputForm") {
       setShowAddInputForm((ShowAddInputForm) => !ShowAddInputForm);
@@ -64,6 +47,26 @@ const MainLayout = () => {
       );
       setShowAddInputForm(false);
       setShowEditInputForm(false);
+    }
+  };
+
+  const HandleCRUD = async (action, data) => {
+    if (action == "Add") {
+      await apiPost("food", data);
+      HandleInputForm("AddInputForm");
+      console.log(Reload);
+      HandleDataReload();
+    } else if (action == "Edit") {
+      await apiPut("food", data);
+      HandleInputForm("EditInputForm");
+      HandleDataReload();
+    } else if (action == "Delete") {
+      await apiDelete("food", data);
+      HandleInputForm("DeleteInputForm");
+      //setShowDeleteInputForm(false);
+      HandleDataReload();
+    } else {
+      alert("select proper option");
     }
   };
 

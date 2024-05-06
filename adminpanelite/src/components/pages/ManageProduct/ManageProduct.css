@@ -1,24 +1,28 @@
 .ManageProduct{
     width: 90%;
-    height: 90%;
-    margin: 5%;
-    /* display: flex;
-    flex-direction: column;
-    align-items:space-between; */
-    
+    margin-left: 5%;
+    margin-right: 5%;
+    /* height: 90%; */
+    /* margin: 5%; */
+    padding : 15px 0px 15px 0px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items:center; */
+    /* justify-content: center;
+     */
 }
 .ManageProductHeading{
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
 }
 .ManageProductBtnCollection{
     
     display:flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     overflow-wrap: wrap;
-    align-items: center;
+    align-items: space-evenly;
     
   
 }
@@ -29,9 +33,9 @@
     background-color:rgb(82,172,87);
     height: 100%;
     width: 100%;
-    margin: 10px;
+    margin:0px 10px 0px 10px;
     border-radius: 10px;
-    border: 0px ;
+    border: none ;
     padding-top: 15px;
     padding-bottom: 15px;
     border-color: white;
@@ -74,6 +78,9 @@
     .ManageProductBtnCollection{
         flex-direction: column;
         
+    }
+    .ManageProductReloadBtn, .ManageProductAddBtn,.ManageProductEditBtn,.ManageProductDeleteBtn{
+        margin:01px 0px 10px 0px;
     }
   
     

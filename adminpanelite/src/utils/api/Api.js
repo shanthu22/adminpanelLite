@@ -51,7 +51,7 @@ export const apiPost = async (tableName, data) => {
       data,
       config
     );
-    console.log(response);
+    //console.log(response);
   } catch (error) {
     return ["error", "connection error"];
   }
@@ -72,7 +72,7 @@ export const apiPut = async (tableName, data) => {
       data,
       config
     );
-    console.log(response);
+    //console.log(response);
   } catch (error) {
     return ["error", "connection error"];
   }
@@ -92,7 +92,7 @@ export const apiDelete = async (tableName, data) => {
       `http://localhost:3001/${tableName}/${data.id}`,
       config
     );
-    console.log(response);
+    //console.log(response);
   } catch (error) {
     return ["error", "connection error"];
   }

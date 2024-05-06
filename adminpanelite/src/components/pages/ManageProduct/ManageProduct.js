@@ -22,6 +22,7 @@ const ManageProduct = ({ HandleInputForm, HandleDataReload }) => {
       imagePath: "new.jpg",
     };
     // apiPost("food", data);
+    HandleDataReload();
   };
   const HandleEditBtn = (e) => {
     HandleInputForm("EditInputForm");
