@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Popup from "../../atoms/Popup/Popup";
 import "./EditInputForm.css";
-const EditInputForm = ({ SelectedPrd }) => {
+const EditInputForm = ({ SelectedPrd, HandleCRUD }) => {
   const { id, name, description, price, quantity, expDate, imagePath } =
     SelectedPrd;
   // console.log(SelectedPrd.id);
@@ -12,6 +12,7 @@ const EditInputForm = ({ SelectedPrd }) => {
   };
   const HandleSubmit = (e) => {
     e.preventDefault();
+    HandleCRUD("Edit", Formdata);
     console.log(Formdata);
   };
   return (

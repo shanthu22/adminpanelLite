@@ -1,4 +1,4 @@
-.AddInputForm {
+.DeleteInputForm {
 
     display: flex;
     flex-direction: column;
@@ -52,7 +52,7 @@
 
     padding:10px;
     border: none;
-    background-color: rgb(50,139,235);
+    background-color: rgb(0, 255, 42);
     cursor: pointer;
 }
 

@@ -1,23 +1,40 @@
 import Popup from "../../atoms/Popup/Popup";
 import { useState } from "react";
-import "./AddInputForm.css";
-const AddInputForm = ({ HandleCRUD }) => {
-  const [Formdata, setFormdata] = useState([]);
+import "./DeleteInputForm.css";
+const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
+  const [Formdata, setFormdata] = useState(SelectedPrd);
   const HandleOnchange = (e) => {
     e.preventDefault();
-    setFormdata({ ...Formdata, [e.target.name]: e.target.value });
+    alert("ID is read only, It cannot be Edited ");
+    // setFormdata({ ...Formdata, [e.target.name]: e.target.value });
+  };
+  const HandleOnClick = (e) => {
+    alert(
+      `${e.target.name} is read only, It cannot be Edited \n Select EDIT Button to Edit`
+    );
   };
   const HandleSubmit = (e) => {
     e.preventDefault();
+    HandleCRUD("Delete", Formdata);
     console.log(Formdata);
-    HandleCRUD("Add", Formdata);
   };
   return (
     <Popup>
-      <div className="AddInputForm">
-        <div>Add Product </div>
+      <div className="DeleteInputForm">
+        <div>Delete Product </div>
         <div className="Image"></div>
         <div className="form">
+          <label>
+            <input
+              readOnly
+              placeholder="ID"
+              name="id"
+              onClick={(e) => HandleOnClick(e)}
+              value={Formdata.id}
+              // type="text"
+              className="input"
+            />
+          </label>
           <label>
             <input
               placeholder="Name"
@@ -94,4 +111,4 @@ const AddInputForm = ({ HandleCRUD }) => {
   );
 };
 
-export default AddInputForm;
+export default DeleteInputForm;
