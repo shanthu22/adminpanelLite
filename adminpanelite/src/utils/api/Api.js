@@ -72,7 +72,7 @@ export const apiPut = async (tableName, data) => {
       data,
       config
     );
-    //console.log(response);
+    console.log(response);
   } catch (error) {
     return ["error", "connection error"];
   }

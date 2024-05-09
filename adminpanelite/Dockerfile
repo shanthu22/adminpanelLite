@@ -7,7 +7,7 @@ LABEL description="Dockerfile for building an white-labeled lite admin panel for
 LABEL version="1.0"
 
 # Update package repositories and upgrade installed packages
-RUN apk update && \
+RUN apk update && \                  
     apk upgrade
 
 # Install required packages
@@ -36,4 +36,6 @@ EXPOSE 3002
 
 # Command to run the React app 
 CMD ["npm","run", "linuxstart"]
+
+
 

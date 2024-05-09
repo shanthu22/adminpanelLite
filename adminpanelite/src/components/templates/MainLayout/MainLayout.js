@@ -21,7 +21,6 @@ const MainLayout = () => {
     "Expirary Date",
     "Image Path",
     "Image",
-    "Action",
   ];
   const [TableData, setTableData] = useState();
   const [SelectedPrd, setSelectedPrd] = useState();
@@ -104,6 +103,7 @@ const MainLayout = () => {
         TableHeaders={TableHeaders}
         TableData={TableData}
         FetchSelectedPrd={FetchSelectedPrd}
+        Reload={Reload}
       />
       <Footer />
     </div>
