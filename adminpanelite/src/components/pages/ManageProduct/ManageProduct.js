@@ -1,6 +1,5 @@
 import "./ManageProduct.css";
 import Popup from "../../atoms/Popup/Popup";
-import { apiPost, apiPut, apiDelete } from "../../../utils/api/Api";
 
 const ManageProduct = ({ HandleInputForm, HandleDataReload }) => {
   const HandlereloadBtn = (e) => {

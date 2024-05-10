@@ -1,8 +1,14 @@
 import "./Navbar.css";
-// import "../../../assets/logo.png" as logo
+import logout from "../../../assets/icons/logout.png";
 import logo from "../../../assets/logo.png";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
-  // const logo = require("../../../assets/logo.png");
+  const navigate = useNavigate();
+
+  const HandleLogout = () => {
+    console.log("Logout");
+    navigate("/");
+  };
   return (
     <div className="Nabvar">
       <div className="NavbarLeft">
@@ -14,7 +20,9 @@ const Navbar = () => {
         <div className="NavbarLeftBtn">Contact Us</div> */}
       </div>
       <div className="NavbarRight">
-        {/* <div className="NavbarLeftBtn">Home</div> */}
+        <div className="NavbarRightBtn">
+          <img onClick={() => HandleLogout()} src={logout}></img>
+        </div>
         {/* <div className="NavbarRightBtn"> Tekkzen</div> */}
       </div>
     </div>

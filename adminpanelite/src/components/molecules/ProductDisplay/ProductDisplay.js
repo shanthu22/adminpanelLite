@@ -3,7 +3,7 @@ import Popup from "../../atoms/Popup/Popup";
 import SampleImg from "../../../assets/example1.jpg";
 import { S3ObjectsGet } from "../../../utils/aws/Aws";
 import { useEffect, useState } from "react";
-
+import Loader from "../../atoms/Loader/Loader";
 const ProductDisplay = ({
   TableName,
   TableHeaders,
@@ -13,7 +13,8 @@ const ProductDisplay = ({
 }) => {
   const [imageURLs, setImageURLs] = useState([]);
   const [imgReload, setImgReload] = useState(false);
-  const aaa = TableData.length;
+  const TableLen = TableData.length;
+  console.log("TableData Length: ", TableLen);
   const HandleImgReload = () => {
     setImgReload(!imgReload);
   };
@@ -22,7 +23,6 @@ const ProductDisplay = ({
     FetchSelectedPrd(prd);
   };
 
-  //checlaLERT();
   const fetchImages = async () => {
     const urls = await Promise.all(
       TableData.map(async (data) => {
@@ -55,7 +55,7 @@ const ProductDisplay = ({
     console.log("Image FETC IS CALLED");
     fetchImages();
     // setImageURLs([]);
-  }, [aaa]); //TableData  Reload
+  }, [TableLen]); //TableData  Reload
 
   return (
     <Popup>
@@ -85,7 +85,7 @@ const ProductDisplay = ({
                   <td>{data.imagePath}</td>
                   <td className="ImageCard">
                     {imageURLs == "default.jpg" ? (
-                      <div>Loading ...</div>
+                      <Loader />
                     ) : (
                       <img src={imageURLs[index]} />
                     )}

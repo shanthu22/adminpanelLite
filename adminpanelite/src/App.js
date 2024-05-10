@@ -16,8 +16,8 @@ function App() {
       </Router> */}
       <Router>
         <Routes>
-          <Route exact path="/" element={<MainLayout />} />
-          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/dashboard" element={<MainLayout />} />
+          <Route exact path="/" element={<Login />} />
           <Route exact path="/dashboard" element={"###"} />
         </Routes>
       </Router>

@@ -34,5 +34,27 @@
 }
 .NavbarRight{
     /* background-color: blueviolet; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     flex:.5;
+}
+
+.NavbarRightBtn{
+    cursor: pointer;
+    margin-right: 10px;
+    object-fit: contain;
+    height: 30px;
+    width: 30px;
+    transition:  0.4s ease;
+}
+.NavbarRightBtn:hover{
+    height: 35px;
+    width: 35px;
+    
+   
+}
+.NavbarRightBtn > img{
+    height: 100%;
+    width: 100%;
 }
