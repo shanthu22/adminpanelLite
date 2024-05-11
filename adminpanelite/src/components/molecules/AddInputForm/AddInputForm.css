@@ -32,7 +32,7 @@ flex-direction: row;
     
 }
 .AddFormRightSide{
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
    
     display: flex;
     flex: .7;
@@ -44,7 +44,7 @@ flex-direction: row;
 }
 .AddFormLeftSide{
     /* padding: 10px; */
-     margin-bottom: 10px;
+     /* margin-bottom: 10px; */
     margin-top: 10px;
     display: flex;
     flex: .3;
@@ -84,19 +84,18 @@ flex-direction: row;
    
     font-size: 20px;
    
-    padding:10px;
+    /* padding:10px; */
     border: none;
    
     cursor: pointer;
     letter-spacing: 1px;
-    background-color: #A305A6;
+    background-color: #A305A6;;
    
 }
 
 @media screen and (max-width: 768px) {
-    .input {
-        padding: 5px;
-        width: 100%; /* Adjusting width for smaller screens */
+    .AddInputForm {
+       
         height:auto;
         font-size: 15px;
     }
@@ -107,11 +106,48 @@ flex-direction: row;
         margin-top: 0px;
         font-size: 15px;
     }
-    .form> label{
+    .Addform> label{
         
          width: 100%;
          display: flex;
+        
          align-items: center;
      }
-     
+     .Addform{
+        width: 100%;
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: center;
+    
+        
+    }
+    .AddFormRightSide{
+        /* margin-bottom: 10px; */
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+        width:100%;
+        display: flex;
+        flex: .5;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+       
+    }
+    .AddFormLeftSide{
+        /* padding: 10px; */
+         /* margin-bottom: 10px;
+        margin-top: 10px; */
+        margin: 0px 0px 0px 0px;
+        display: flex;
+        flex: .5;
+        width:100%;
+        justify-content: center;
+        
+        object-fit: cover;
+       
+        
+    }
+    
 }
