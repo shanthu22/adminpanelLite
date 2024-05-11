@@ -39,7 +39,7 @@ const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
             <input
               placeholder="Name"
               name="name"
-              onChange={(e) => HandleOnchange(e)}
+              onClick={(e) => HandleOnClick(e)}
               value={Formdata.name}
               type="text"
               className="input"
@@ -50,7 +50,7 @@ const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
               required=""
               placeholder="Description"
               name="description"
-              onChange={(e) => HandleOnchange(e)}
+              onClick={(e) => HandleOnClick(e)}
               value={Formdata.description}
               type="text"
               className="input"
@@ -61,7 +61,7 @@ const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
               required=""
               placeholder="Price"
               name="price"
-              onChange={(e) => HandleOnchange(e)}
+              onClick={(e) => HandleOnClick(e)}
               value={Formdata.price}
               type="text"
               className="input"
@@ -72,7 +72,7 @@ const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
               required=""
               placeholder="Quantity"
               name="quantity"
-              onChange={(e) => HandleOnchange(e)}
+              onClick={(e) => HandleOnClick(e)}
               value={Formdata.quantity}
               type="text"
               className="input"
@@ -83,7 +83,7 @@ const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
               required=""
               placeholder="Expiray Date"
               name="expDate"
-              onChange={(e) => HandleOnchange(e)}
+              onClick={(e) => HandleOnClick(e)}
               value={Formdata.expDate}
               type="text"
               className="input"
@@ -94,7 +94,7 @@ const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
               required=""
               placeholder="Image Path"
               name="imagePath"
-              onChange={(e) => HandleOnchange(e)}
+              onClick={(e) => HandleOnClick(e)}
               value={Formdata.imagePath}
               type="text"
               className="input"

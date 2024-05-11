@@ -3,43 +3,59 @@ import Popup from "../../atoms/Popup/Popup";
 import SampleImg from "../../../assets/example1.jpg";
 import { S3ObjectsGet } from "../../../utils/aws/Aws";
 import { useEffect, useState } from "react";
-
+import Loader from "../../atoms/Loader/Loader";
 const ProductDisplay = ({
   TableName,
   TableHeaders,
   TableData,
   FetchSelectedPrd,
+  Reload,
 }) => {
   const [imageURLs, setImageURLs] = useState([]);
+  const [imgReload, setImgReload] = useState(false);
+  const TableLen = TableData.length;
+  console.log("TableData Length: ", TableLen);
+  const HandleImgReload = () => {
+    setImgReload(!imgReload);
+  };
   const HandleClick = (prd) => {
     // console.log(prd);
     FetchSelectedPrd(prd);
   };
-  useEffect(() => {
-    const fetchImages = async () => {
-      const urls = await Promise.all(
-        TableData.map(async (data) => {
-          try {
-            const imageData = await S3ObjectsGet(data.imagePath);
-            // console.log(data.imageData);
-            if (imageData) {
-              const blob = await new Blob([imageData.Body], {
-                type: "image/jpeg",
-              });
-              const url = URL.createObjectURL(blob);
-              return url;
-            }
-          } catch (error) {
-            console.error("Error fetching image:", error);
-            return null;
-          }
-        })
-      );
-      setImageURLs(urls);
-    };
 
+  const fetchImages = async () => {
+    const urls = await Promise.all(
+      TableData.map(async (data) => {
+        try {
+          const imageData = await S3ObjectsGet(data.imagePath);
+          // console.log(data.imageData);
+          if (imageData) {
+            const blob = await new Blob([imageData.Body], {
+              type: "image/jpeg",
+            });
+            const url = URL.createObjectURL(blob);
+
+            return url;
+          }
+        } catch (error) {
+          console.error("Error fetching image:", error);
+          return null;
+        }
+      })
+    );
+    setImageURLs(urls);
+    HandleImgReload();
+    if (urls.length === 0) {
+      console.log("Image URLS IS EMPTY");
+    }
+    // setImageURLs(urls);
+    // HandleImgReload();
+  };
+  useEffect(() => {
+    console.log("Image FETC IS CALLED");
     fetchImages();
-  }, []); //TableData
+    // setImageURLs([]);
+  }, [TableLen]); //TableData  Reload
 
   return (
     <Popup>
@@ -56,7 +72,10 @@ const ProductDisplay = ({
             </thead>
             <tbody>
               {TableData.map((data, index) => (
-                <tr key={index} className="ProductDisplayTableBody">
+                <tr
+                  key={index}
+                  onClick={() => HandleClick(data)}
+                  className="ProductDisplayTableBody">
                   <td>{data.id}</td>
                   <td>{data.name}</td>
                   <td>{data.description}</td>
@@ -65,13 +84,15 @@ const ProductDisplay = ({
                   <td>{data.expDate}</td>
                   <td>{data.imagePath}</td>
                   <td className="ImageCard">
-                    {imageURLs[index] && (
-                      <img src={imageURLs[index]} alt={data.imagePath} />
+                    {imageURLs == "default.jpg" ? (
+                      <Loader />
+                    ) : (
+                      <img src={imageURLs[index]} />
                     )}
                   </td>
-                  <td>
+                  {/* <td>
                     <button onClick={() => HandleClick(data)}>Select </button>
-                  </td>
+                  </td> */}
                 </tr>
               ))}
             </tbody>

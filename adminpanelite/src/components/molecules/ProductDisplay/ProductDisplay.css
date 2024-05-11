@@ -3,7 +3,7 @@
 }
 .ProductDisplayTableName{   
   color:rgb(255, 255, 255);
-  background-color: rgb(253, 150, 14);
+  background-color: #A305A6;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding : 15px 0px 15px 0px;
@@ -11,7 +11,7 @@
 }
 .ProductDisplayTable {
     overflow-x: auto;
-    padding: 20px;
+    padding: 15px;
 }
 
 .ProductDisplayTable > table{
@@ -23,7 +23,7 @@
 
 .ProductDisplayTableHead >  th {
   text-align: left; 
-  border-bottom: 3px solid rgb(43, 0, 255); 
+  border-bottom: 3px solid #960B80; 
   padding: 10px;
 }
 
@@ -33,13 +33,25 @@
   
      /* Adjust padding as needed */
     text-align: left; /* Center align text */
-    border: none; /* Example border style */
+    border: 0px solid red; /* Example border style */
     padding: 10px;
- 
-    
-   
     text-overflow: ellipsis; /* Show ellipsis if text overflows */
+  cursor: pointer;
   }
+
+  .ProductDisplayTableBody:nth-child(even) {
+    background-color:rgba(242, 208, 242, 0.552);  /* Lighter color for even rows */
+  }
+  
+  .ProductDisplayTableBody:nth-child(odd) {
+    background-color: #F2F2F2; /* Darker color for odd rows */
+  }
+  .ProductDisplayTableBody:hover{
+    background-color: rgba(163, 5, 166, 0.928); 
+    color:rgb(255, 255, 255);
+    
+  }
+ 
 .ImageCard{
   /* background-color: rgb(0, 255, 0); */
   max-height: auto;
@@ -52,6 +64,7 @@
 .ImageCard > img{
   max-width: 100%;
   max-height: 100%;
+  border-radius: 10px;
 }
 
   .ProductDisplayTableBody >  td > button {

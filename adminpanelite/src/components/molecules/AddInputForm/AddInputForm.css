@@ -1,6 +1,7 @@
 .AddInputForm {
 
     display: flex;
+   
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -9,23 +10,55 @@
     /* padding: 30px 0px 30px 0px; */
     width: 90%;
     height: 90%;
-    margin: 5%;
+    margin: 5%; 
+    padding : 15px 0px 15px 0px;
     
 }
 
-.form {
+.AddImage{
     
+    object-fit: contain;
+    width: 95%;
+    border-radius: 10px;
+    /* height: 100%; */
+}
+
+.Addform{
+    width: 100%;
+display: flex;
+flex:1;
+flex-direction: row;
+
+    
+}
+.AddFormRightSide{
+    margin-bottom: 10px;
+   
     display: flex;
+    flex: .7;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    
+   
+}
+.AddFormLeftSide{
+    /* padding: 10px; */
+     margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex: .3;
+    width:95%;
+    justify-content: center;
+    
+    object-fit: cover;
+   
     
 }
-.form> label{
+.AddFormRightSide > label{
     margin-top: 10px;
   
-    width:80%;
+    width:95%;
     display: flex;
     align-items: center;
 }
@@ -36,24 +69,28 @@
     max-width: 100%; 
     padding:10px;
     margin:0px;
-    /* margin-top: 30px; */
+  
     border-radius: 10px;
     
     border: 2px solid #797979;
     font-size: 20px;
+    letter-spacing: 1px;
 }
 
 .submitBtn {
     border-radius: 10px;
     width: 100%;
     max-width: 100%; 
-    margin:15px 0px 0px 0px;
+   
     font-size: 20px;
-
+   
     padding:10px;
     border: none;
-    background-color: rgb(50,139,235);
+   
     cursor: pointer;
+    letter-spacing: 1px;
+    background-color: #A305A6;
+   
 }
 
 @media screen and (max-width: 768px) {
@@ -67,7 +104,7 @@
     .submitBtn {
         padding: 5px;
         width: 100%; 
-        margin-top: 15px;
+        margin-top: 0px;
         font-size: 15px;
     }
     .form> label{
