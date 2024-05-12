@@ -44,18 +44,16 @@
     font-size: 20px;
 }
 
-.submitBtn {
+/* .submitBtn {
     border-radius: 10px;
     width: 100%;
     max-width: 100%; 
-    /* margin:10px 0px 0px 0px; */
     font-size: 20px;
-
     padding:10px;
     border: none;
-    background-color: rgb(255, 208, 0);
+    background-color: #A305A6;
     cursor: pointer;
-}
+} */
 
 @media screen and (max-width: 768px) {
     .input {
