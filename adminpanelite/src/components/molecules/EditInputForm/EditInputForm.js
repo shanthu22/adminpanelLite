@@ -18,7 +18,7 @@ const EditInputForm = ({ SelectedPrd, HandleCRUD }) => {
   return (
     <Popup>
       <div className="EditInputForm">
-        <div>Edit Product </div>
+        <div className="FormHeading">Edit Product </div>
         <div className="Image"></div>
         <div className="form">
           <label>

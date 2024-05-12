@@ -21,9 +21,14 @@ const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
   return (
     <Popup>
       <div className="DeleteInputForm">
-        <div>Delete Product </div>
+        <div className="FormHeading">Delete Product </div>
         <div className="Image"></div>
         <div className="form">
+          <label>
+            <div className="deleteText">
+              Are you sure you want to delete this product ?
+            </div>
+          </label>
           <label>
             <input
               readOnly
@@ -37,15 +42,16 @@ const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
           </label>
           <label>
             <input
+              readOnly
               placeholder="Name"
               name="name"
               onClick={(e) => HandleOnClick(e)}
               value={Formdata.name}
-              type="text"
+              // type="text"
               className="input"
             />
           </label>
-          <label>
+          {/* <label>
             <input
               required=""
               placeholder="Description"
@@ -99,10 +105,13 @@ const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
               type="text"
               className="input"
             />
-          </label>
+          </label> */}
           <label>
-            <button className="submitBtn" onClick={(e) => HandleSubmit(e)}>
-              Submit
+            <button className="DeleteBtn" onClick={(e) => HandleSubmit(e)}>
+              Delete
+            </button>
+            <button className="CancelBtn" onClick={(e) => HandleSubmit(e)}>
+              Cancel
             </button>
           </label>
         </div>

@@ -16,7 +16,7 @@ const AddInputForm = ({ HandleCRUD }) => {
   return (
     <Popup>
       <div className="AddInputForm">
-        <div>Add Product </div>
+        <div className="FormHeading">Add Product </div>
 
         <div className="Addform">
           <div className="AddFormLeftSide">
