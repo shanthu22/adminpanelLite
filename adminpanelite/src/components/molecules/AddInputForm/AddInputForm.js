@@ -53,7 +53,7 @@ const AddInputForm = ({ HandleCRUD }) => {
                 name="price"
                 onChange={(e) => HandleOnchange(e)}
                 value={Formdata.price}
-                type="text"
+                type="number"
                 className="input"
               />
             </label>
@@ -64,7 +64,7 @@ const AddInputForm = ({ HandleCRUD }) => {
                 name="quantity"
                 onChange={(e) => HandleOnchange(e)}
                 value={Formdata.quantity}
-                type="text"
+                type="number"
                 className="input"
               />
             </label>
@@ -75,7 +75,7 @@ const AddInputForm = ({ HandleCRUD }) => {
                 name="expDate"
                 onChange={(e) => HandleOnchange(e)}
                 value={Formdata.expDate}
-                type="text"
+                type="date"
                 className="input"
               />
             </label>
