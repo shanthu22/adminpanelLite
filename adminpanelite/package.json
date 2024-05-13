@@ -20,8 +20,8 @@
   },
  
   "scripts": {
-    "windowstart": "set PORT=3002 && react-scripts start",
-    "linuxstart": "PORT=3002 react-scripts start",
+    "winstart": "set PORT=3002 && react-scripts start",
+    "linstart": "PORT=3002 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
