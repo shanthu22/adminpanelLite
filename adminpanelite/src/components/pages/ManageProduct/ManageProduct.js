@@ -1,5 +1,5 @@
 import "./ManageProduct.css";
-import Popup from "../../atoms/Popup/Popup";
+import Container from "../../atoms/Container/Container";
 
 const ManageProduct = ({ HandleInputForm, HandleDataReload }) => {
   const HandlereloadBtn = (e) => {
@@ -50,7 +50,7 @@ const ManageProduct = ({ HandleInputForm, HandleDataReload }) => {
   };
   return (
     <>
-      <Popup>
+      <Container>
         <div className="ManageProduct">
           <div className="ManageProductHeading">Manage Products</div>
           <div className="ManageProductBtnCollection">
@@ -76,7 +76,7 @@ const ManageProduct = ({ HandleInputForm, HandleDataReload }) => {
             </button>
           </div>
         </div>
-      </Popup>
+      </Container>
     </>
   );
 };

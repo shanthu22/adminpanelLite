@@ -1,10 +1,7 @@
 import { useState } from "react";
-import Popup from "../../atoms/Popup/Popup";
+import Container from "../../atoms/Container/Container";
 import "./EditInputForm.css";
 const EditInputForm = ({ SelectedPrd, HandleCRUD }) => {
-  const { id, name, description, price, quantity, expDate, imagePath } =
-    SelectedPrd;
-  // console.log(SelectedPrd.id);
   const [Formdata, setFormdata] = useState(SelectedPrd);
   const HandleOnchange = (e) => {
     e.preventDefault();
@@ -16,7 +13,7 @@ const EditInputForm = ({ SelectedPrd, HandleCRUD }) => {
     console.log(Formdata);
   };
   return (
-    <Popup>
+    <Container>
       <div className="EditInputForm">
         <div className="FormHeading">Edit Product </div>
         <div className="Image"></div>
@@ -104,7 +101,7 @@ const EditInputForm = ({ SelectedPrd, HandleCRUD }) => {
           </label>
         </div>
       </div>
-    </Popup>
+    </Container>
   );
 };
 export default EditInputForm;

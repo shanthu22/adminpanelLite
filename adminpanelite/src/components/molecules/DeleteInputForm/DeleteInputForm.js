@@ -1,4 +1,4 @@
-import Popup from "../../atoms/Popup/Popup";
+import Container from "../../atoms/Container/Container";
 import { useState } from "react";
 import "./DeleteInputForm.css";
 const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
@@ -19,7 +19,7 @@ const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
     console.log(Formdata);
   };
   return (
-    <Popup>
+    <Container>
       <div className="DeleteInputForm">
         <div className="FormHeading">Delete Product </div>
         <div className="Image"></div>
@@ -51,61 +51,7 @@ const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
               className="input"
             />
           </label>
-          {/* <label>
-            <input
-              required=""
-              placeholder="Description"
-              name="description"
-              onClick={(e) => HandleOnClick(e)}
-              value={Formdata.description}
-              type="text"
-              className="input"
-            />
-          </label>
-          <label>
-            <input
-              required=""
-              placeholder="Price"
-              name="price"
-              onClick={(e) => HandleOnClick(e)}
-              value={Formdata.price}
-              type="text"
-              className="input"
-            />
-          </label>
-          <label>
-            <input
-              required=""
-              placeholder="Quantity"
-              name="quantity"
-              onClick={(e) => HandleOnClick(e)}
-              value={Formdata.quantity}
-              type="text"
-              className="input"
-            />
-          </label>
-          <label>
-            <input
-              required=""
-              placeholder="Expiray Date"
-              name="expDate"
-              onClick={(e) => HandleOnClick(e)}
-              value={Formdata.expDate}
-              type="text"
-              className="input"
-            />
-          </label>
-          <label>
-            <input
-              required=""
-              placeholder="Image Path"
-              name="imagePath"
-              onClick={(e) => HandleOnClick(e)}
-              value={Formdata.imagePath}
-              type="text"
-              className="input"
-            />
-          </label> */}
+
           <label>
             <button className="DeleteBtn" onClick={(e) => HandleSubmit(e)}>
               Delete
@@ -116,7 +62,7 @@ const DeleteInputForm = ({ SelectedPrd, HandleCRUD }) => {
           </label>
         </div>
       </div>
-    </Popup>
+    </Container>
   );
 };
 

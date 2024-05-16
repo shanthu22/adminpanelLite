@@ -1,21 +1,39 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import Popup from "../../atoms/Popup/Popup";
+
 import logoImg from "../../../assets/logo.png";
+import { CredentialsValidation } from "../../../utils/credentialsValidation/credentialsValidation";
+import { useAuth } from "../../../utils/AuthContext/AuthContext";
 const Login = () => {
   const navigate = useNavigate();
-  //const history = useHistory();
-  const [Formdata, setFormdata] = useState({});
-  // const history = useHistory();
-  const HandleOnchange = (e) => {
-    setFormdata({ ...Formdata, [e.target.name]: e.target.value });
+  const [formData, setFormData] = useState({ username: "", password: "" });
+  const { login, logout } = useAuth();
+  const handleOnChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const HandleClick = () => {
-    navigate("/dashboard");
-    console.log(Formdata);
-    // setFormdata({ default: "default" });
-    // history.replace("/dashboard");
+
+  const validationStatus = async () => {
+    const myres = await CredentialsValidation({
+      credentials: formData,
+      login,
+      logout,
+    });
+    if (myres) {
+      console.log("Login successfully");
+      navigate("/dashboard");
+    } else {
+      alert("Incorrect ID or Password");
+    }
+  };
+
+  const handleClick = async () => {
+    console.log(formData);
+    if (formData.username === "" || formData.password === "") {
+      alert("Please enter both username and password");
+    } else {
+      validationStatus();
+    }
   };
 
   return (
@@ -28,28 +46,28 @@ const Login = () => {
 
           <div className="infotop">
             <div className="image">
-              <img src={logoImg}></img>
+              <img src={logoImg} alt="Logo"></img>
             </div>
 
             <div className="LoginForm">
               <input
                 placeholder="Account Id"
-                name="AccountId"
-                onChange={(e) => HandleOnchange(e)}
-                value={Formdata.AccountId}
+                name="username"
+                onChange={(e) => handleOnChange(e)}
+                value={formData.username}
                 type="text"
                 className="inputt"
               />
               <input
                 placeholder="Password"
-                name="Password"
-                onChange={(e) => HandleOnchange(e)}
-                value={Formdata.Password}
+                name="password"
+                onChange={(e) => handleOnChange(e)}
+                value={formData.password}
                 type="password"
                 className="inputt"
               />
-              <button className="LoginBtn" onClick={() => HandleClick()}>
-                Login{" "}
+              <button className="LoginBtn" onClick={handleClick}>
+                Login
               </button>
               <div className="name">Contact Support</div>
             </div>

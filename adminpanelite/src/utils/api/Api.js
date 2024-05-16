@@ -18,16 +18,6 @@ export const apiGet = async (tableName) => {
       `http://localhost:3001/${tableName}/`,
       config
     );
-
-    // ({
-    //   method,
-    //   url,
-    //   data,
-    // });
-    // Assuming response.data is the array of items
-    // response.data.forEach((item) => {
-    //   console.log(item.name);
-    // });
     return response;
   } catch (error) {
     return ["error", "connection error"];
@@ -95,5 +85,19 @@ export const apiDelete = async (tableName, data) => {
     //console.log(response);
   } catch (error) {
     return ["error", "connection error"];
+  }
+};
+
+export const apiUserLogin = async (data) => {
+  try {
+    console.log("POST Api is called ");
+    console.log(data);
+
+    const response = await axios.post(`http://localhost:3001/login/`, data);
+    console.log(true, response);
+    const result = [true, response.data.token];
+    return result;
+  } catch (error) {
+    return [false, error];
   }
 };
