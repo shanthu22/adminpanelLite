@@ -1,7 +1,8 @@
 import "./ProductDisplay.css";
-import Popup from "../../atoms/Popup/Popup";
+import Container from "../../atoms/Container/Container";
 import SampleImg from "../../../assets/example1.jpg";
-import { S3ObjectsGet } from "../../../utils/aws/Aws";
+
+import { S3ObjectsGet } from "../../../utils/aws/AwsOperations";
 import { useEffect, useState } from "react";
 import Loader from "../../atoms/Loader/Loader";
 const ProductDisplay = ({
@@ -58,7 +59,7 @@ const ProductDisplay = ({
   }, [TableLen]); //TableData  Reload
 
   return (
-    <Popup>
+    <Container>
       <div className="ProductDisplay">
         <div className="ProductDisplayTableName">{TableName}</div>
         <div className="ProductDisplayTable">
@@ -99,7 +100,7 @@ const ProductDisplay = ({
           </table>
         </div>
       </div>
-    </Popup>
+    </Container>
   );
 };
 

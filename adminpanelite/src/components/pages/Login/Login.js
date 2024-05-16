@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import Popup from "../../atoms/Popup/Popup";
+
 import logoImg from "../../../assets/logo.png";
 import { CredentialsValidation } from "../../../utils/credentialsValidation/credentialsValidation";
 import { useAuth } from "../../../utils/AuthContext/AuthContext";

@@ -1,14 +1,10 @@
 import "./FileUpload.css";
 import imgUpload from "../../../assets/icons/imgUpload.png";
-
-const FileUpload = ({ HandleCRUD }) => {
+const FileUpload = ({ HandleImageUploadOnSubmit }) => {
   const HandleFileUpload = (e) => {
-    const file = e.target.files;
-    let fileformat = "png";
-    let NewFileName = `new222FileName.${fileformat}`;
-    let ModifiedFile = new File([file[0]], NewFileName, { type: file[0].type });
-    console.log(ModifiedFile);
-    console.log(file[0]);
+    const files = e.target.files;
+
+    HandleImageUploadOnSubmit(files);
   };
   return (
     <div className="FileUpload">

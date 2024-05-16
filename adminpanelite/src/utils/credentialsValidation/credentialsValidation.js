@@ -1,5 +1,5 @@
 import { apiUserLogin } from "../api/Api";
-import { useAuth } from "../AuthContext/AuthContext";
+
 export const CredentialsValidation = async ({ credentials, login, logout }) => {
   console.log("credentialsValidation is called ++++++ ");
   console.log(credentials);
@@ -10,7 +10,7 @@ export const CredentialsValidation = async ({ credentials, login, logout }) => {
     console.log(result[1]);
     localStorage.setItem("token", result[1]);
 
-    login();
+    login(); //Setting the
     return true;
   } else {
     logout();

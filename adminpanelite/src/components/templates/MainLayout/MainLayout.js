@@ -8,6 +8,7 @@ import { apiGet, apiPost, apiPut, apiDelete } from "../../../utils/api/Api";
 import AddInputForm from "../../molecules/AddInputForm/AddInputForm";
 import EditInputForm from "../../molecules/EditInputForm/EditInputForm";
 import DeleteInputForm from "../../molecules/DeleteInputForm/DeleteInputForm";
+import Sidebar from "../../organisms/Sidebar/Sidebar";
 
 // import { S3ObjectsGet } from "../../../utils/aws/Aws";
 const MainLayout = () => {
@@ -30,6 +31,7 @@ const MainLayout = () => {
   const [Reload, setReload] = useState(false);
   const HandleDataReload = () => {
     setReload((Reload) => !Reload);
+    setSelectedPrd(null);
   };
   const HandleInputForm = (name) => {
     if (name == "AddInputForm") {
@@ -53,16 +55,17 @@ const MainLayout = () => {
     if (action == "Add") {
       await apiPost("food", data);
       HandleInputForm("AddInputForm");
-      console.log(Reload);
       HandleDataReload();
+      // return "ChcekingName";
     } else if (action == "Edit") {
       await apiPut("food", data);
       HandleInputForm("EditInputForm");
       HandleDataReload();
+      console.log(data);
     } else if (action == "Delete") {
       await apiDelete("food", data);
       HandleInputForm("DeleteInputForm");
-      //setShowDeleteInputForm(false);
+
       HandleDataReload();
     } else {
       alert("select proper option");
@@ -76,7 +79,7 @@ const MainLayout = () => {
   };
 
   const FetchSelectedPrd = (prd) => {
-    console.log(prd);
+    //console.log(prd);
     setSelectedPrd(prd);
   };
 
@@ -86,6 +89,7 @@ const MainLayout = () => {
   return (
     <div className="MainLayout">
       <Navbar />
+
       <ManageProduct
         SelectedPrd={SelectedPrd}
         HandleInputForm={HandleInputForm}
@@ -98,6 +102,7 @@ const MainLayout = () => {
       {ShowDeleteInputForm && SelectedPrd && (
         <DeleteInputForm SelectedPrd={SelectedPrd} HandleCRUD={HandleCRUD} />
       )}
+
       <ProductDisplay
         TableName={"Food Items"}
         TableHeaders={TableHeaders}
@@ -105,6 +110,7 @@ const MainLayout = () => {
         FetchSelectedPrd={FetchSelectedPrd}
         Reload={Reload}
       />
+
       <Footer />
     </div>
   );

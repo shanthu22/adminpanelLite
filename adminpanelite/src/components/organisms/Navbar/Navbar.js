@@ -1,12 +1,15 @@
 import "./Navbar.css";
-import logout from "../../../assets/icons/logout.png";
+import logoutIcon from "../../../assets/icons/logout.png";
 import logo from "../../../assets/logo.png";
+
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../utils/AuthContext/AuthContext";
 const Navbar = () => {
   const navigate = useNavigate();
-
+  const { logout } = useAuth();
   const HandleLogout = () => {
     console.log("Logout");
+    logout();
     navigate("/");
   };
   return (
@@ -21,7 +24,7 @@ const Navbar = () => {
       </div>
       <div className="NavbarRight">
         <div className="NavbarRightBtn">
-          <img onClick={() => HandleLogout()} src={logout}></img>
+          <img onClick={() => HandleLogout()} src={logoutIcon}></img>
         </div>
         {/* <div className="NavbarRightBtn"> Tekkzen</div> */}
       </div>

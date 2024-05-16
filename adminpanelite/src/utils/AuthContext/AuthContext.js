@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     // Implement your logout logic here
+    console.log("Logout++++++++++++++");
     setIsAuthenticated(false);
   };
 

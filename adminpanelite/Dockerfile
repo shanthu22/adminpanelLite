@@ -35,7 +35,7 @@ COPY . .
 EXPOSE 3002
 
 # Command to run the React app 
-CMD ["npm","run", "linuxstart"]
+CMD ["npm","run", "linstart"]
 
 
 
