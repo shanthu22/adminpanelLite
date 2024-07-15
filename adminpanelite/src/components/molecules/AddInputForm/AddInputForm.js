@@ -14,6 +14,7 @@ const AddInputForm = ({ HandleCRUD }) => {
 
   const HandleFileUpload = (files) => {
     const file = files[0];
+    alert(files.length);
     const fileformat =
       file.type.split("/")[1] === "jpeg" ? "jpg" : file.type.split("/")[1];
 

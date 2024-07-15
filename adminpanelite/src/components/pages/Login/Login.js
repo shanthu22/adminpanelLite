@@ -35,7 +35,11 @@ const Login = () => {
       validationStatus();
     }
   };
-
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleClick();
+    }
+  };
   return (
     <div className="login">
       <div className="card">
@@ -62,6 +66,7 @@ const Login = () => {
                 placeholder="Password"
                 name="password"
                 onChange={(e) => handleOnChange(e)}
+                onKeyDown={(e) => handleKeyDown(e)}
                 value={formData.password}
                 type="password"
                 className="inputt"

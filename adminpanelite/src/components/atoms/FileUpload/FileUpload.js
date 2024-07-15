@@ -8,11 +8,11 @@ const FileUpload = ({ HandleImageUploadOnSubmit }) => {
   };
   return (
     <div className="FileUpload">
-      <label className="custum-file-upload" for="file">
+      <label className="custum-file-upload" multiple for="file">
         <div className="icon">
           <img className="iconUpload" src={imgUpload} alt="imgUpload" />
         </div>
-
+        ``
         <input
           type="file"
           id="file"

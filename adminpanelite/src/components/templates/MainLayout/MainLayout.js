@@ -74,8 +74,8 @@ const MainLayout = () => {
 
   const FetchData = async (TableName) => {
     const response = await apiGet(TableName);
-    //console.log(response.data[0]);
-    setTableData(response.data[0]);
+    console.log(response.data);
+    setTableData(response.data);
   };
 
   const FetchSelectedPrd = (prd) => {

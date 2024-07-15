@@ -6,8 +6,8 @@ import cors from "cors";
 export const apiGet = async (tableName) => {
   try {
     console.log("GET Api is called");
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0MSIsImlhdCI6MTcxMzkxODI4OH0.cYuZxd4uKcTUmH4CZZvln0ww9efmoO8F1FOGQi9nej0";
+    const token = process.env.REACT_APP_API_KEY;
+
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -18,8 +18,11 @@ export const apiGet = async (tableName) => {
       `http://localhost:3001/${tableName}/`,
       config
     );
+
     return response;
   } catch (error) {
+    // alert("connection error");
+    alert(process.env.REACT_APP_API_KEY);
     return ["error", "connection error"];
   }
 };
@@ -28,8 +31,7 @@ export const apiGet = async (tableName) => {
 export const apiPost = async (tableName, data) => {
   try {
     console.log("POST Api is called ");
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0MSIsImlhdCI6MTcxMzkxODI4OH0.cYuZxd4uKcTUmH4CZZvln0ww9efmoO8F1FOGQi9nej0";
+    const token = process.env.REACT_APP_API_KEY;
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -50,8 +52,8 @@ export const apiPost = async (tableName, data) => {
 export const apiPut = async (tableName, data) => {
   try {
     console.log("PUT Api is called ");
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0MSIsImlhdCI6MTcxMzkxODI4OH0.cYuZxd4uKcTUmH4CZZvln0ww9efmoO8F1FOGQi9nej0";
+    const token = process.env.REACT_APP_API_KEY;
+
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -71,8 +73,7 @@ export const apiPut = async (tableName, data) => {
 export const apiDelete = async (tableName, data) => {
   try {
     console.log("DELETE Api is called");
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0MSIsImlhdCI6MTcxMzkxODI4OH0.cYuZxd4uKcTUmH4CZZvln0ww9efmoO8F1FOGQi9nej0";
+    const token = process.env.REACT_APP_API_KEY;
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -93,7 +94,7 @@ export const apiUserLogin = async (data) => {
     console.log("POST Api is called ");
     console.log(data);
 
-    const response = await axios.post(`http://localhost:3001/login/`, data);
+    const response = await axios.post(`http://localhost:3001/login/user`, data);
     console.log(true, response);
     const result = [true, response.data.token];
     return result;
