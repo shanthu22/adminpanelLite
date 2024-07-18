@@ -1,12 +1,11 @@
 import "./FileUpload.css";
 import imgUpload from "../../../assets/icons/imgUpload.png";
-const FileUpload = ({ HandleImageUploadOnSubmit }) => {
+const SingleImg = ({ HandleImageUploadOnSubmit }) => {
   const HandleFileUpload = (e) => {
     const files = e.target.files;
-    alert("length from file upload " + files.length);
-    // if (files.length > 1) {
-    //   alert("Multiple file loaded");
-    // }
+    if (files.length > 1) {
+      alert("Multiple file loaded ");
+    }
     HandleImageUploadOnSubmit(files);
   };
   return (
@@ -27,4 +26,4 @@ const FileUpload = ({ HandleImageUploadOnSubmit }) => {
   );
 };
 
-export default FileUpload;
+export default SingleImg;

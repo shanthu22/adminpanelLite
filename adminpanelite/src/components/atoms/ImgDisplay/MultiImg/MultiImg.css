@@ -1,0 +1,11 @@
+.multiImg{
+    display:flex;
+background-color: red;
+justify-content: space-evenly;
+    overflow-x: wrap;
+}
+
+.imgContainer{
+    height: 100px;
+    width:100px
+}

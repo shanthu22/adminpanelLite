@@ -2,29 +2,29 @@ import Container from "../../atoms/Container/Container";
 import { useState } from "react";
 import "./AddInputForm.css";
 import FileUpload from "../../atoms/FileUpload/FileUpload";
-
+import MultiImg from "../../atoms/ImgDisplay/MultiImg/MultiImg";
 import { S3ObjectsUpload } from "../../../utils/aws/AwsOperations";
 const AddInputForm = ({ HandleCRUD }) => {
   const [Formdata, setFormdata] = useState([]);
-  const [Imgdata, setImgdata] = useState(null);
+  const [Imgdata, setImgdata] = useState([]);
   const HandleInputChange = (e) => {
     // e.preventDefault();
     setFormdata({ ...Formdata, [e.target.name]: e.target.value });
   };
-
   const HandleFileUpload = (files) => {
-    const file = files[0];
-    alert(files.length);
-    const fileformat =
-      file.type.split("/")[1] === "jpeg" ? "jpg" : file.type.split("/")[1];
-
-    const originalName = file.name.split(".")[0];
-    const newFileName = `Food_${originalName}.${fileformat}`;
-    const modifiedFile = new File([file], newFileName, {
-      type: file.type,
+    const newFiles = Array.from(files).map((file) => {
+      const fileFormat =
+        file.type.split("/")[1] === "jpeg" ? "jpg" : file.type.split("/")[1];
+      const originalName = file.name.split(".")[0];
+      const newFileName = `Food_${originalName}.${fileFormat}`;
+      return new File([file], newFileName, { type: file.type });
     });
-    setFormdata({ ...Formdata, imagePath: modifiedFile.name });
-    setImgdata(modifiedFile);
+
+    setImgdata([...Imgdata, ...newFiles]);
+    setFormdata({
+      ...Formdata,
+      imagePath: newFiles.map((file) => file.name).join(", "),
+    });
   };
   const PrepareFileForUpload = async (file) => {
     const reader = new FileReader();
@@ -53,8 +53,9 @@ const AddInputForm = ({ HandleCRUD }) => {
     e.preventDefault();
     if (Imgdata) {
       PrepareFileForUpload(Imgdata);
-      console.log(Formdata);
-      console.log(Imgdata);
+
+      // console.log(Formdata);
+      // console.log(Imgdata);
     }
     HandleCRUD("Add", Formdata);
   };
@@ -67,10 +68,12 @@ const AddInputForm = ({ HandleCRUD }) => {
         <div className="Addform">
           <div className="AddFormLeftSide">
             <div className="AddImage">
-              {Imgdata ? (
-                <img src={URL.createObjectURL(Imgdata)} />
+              {Imgdata.length ? (
+                // <img src={URL.createObjectURL(Imgdata)} />
+                <MultiImg images={Imgdata} />
               ) : (
                 <FileUpload HandleImageUploadOnSubmit={HandleFileUpload} />
+                // <h1>HAHAHAHAHAH</h1>
               )}
             </div>
           </div>
